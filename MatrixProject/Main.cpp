@@ -10,6 +10,8 @@ int main() {
 	using namespace std;
 	setlocale(LC_ALL, "ru");
 
+
+
 	cout << "Привет" << endl;
 	return 0;
 }
