@@ -1,24 +1,36 @@
+#include <conio.h>
 #include <iostream>
 #include <locale.h>
-
-#include "PodyJsonReader.h"
 #include "Logger.h"
 #include "Matrix.h"
+#include "PodyJsonReader.h"
+
+
+using namespace std;
+
+const void PrintConfig(const ConfigData&);
 
 
 int main() {
-	using namespace std;
 	setlocale(LC_ALL, "ru");
 	
 	const std::string config_path = "data.json";
 
 	ConfigData data = PodyJsonReader::readData(config_path);
+	PrintConfig(data);
 
-	cout << data.version << endl;
-	cout << data.is_random_fill << endl;
-	cout << data.rows_amount << endl;
-	cout << data.columns_amount << endl;
-	cout << data.is_random_fill << endl;
+	Matrix m = Matrix(data.rows_amount, data.columns_amount);
+	m.HandInput();
+	m.Print();
+	
 
+	_getch();
 	return 0;
+}
+
+const void PrintConfig(const ConfigData &data) {
+	cout << "version: " << data.version << endl;
+	cout << "is_random_fill: " << data.is_random_fill << endl;
+	cout << "rows_amount: " << data.rows_amount << endl;
+	cout << "columns_amount: " << data.columns_amount << endl;
 }

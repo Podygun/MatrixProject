@@ -33,7 +33,7 @@ std::string PodyJsonReader::ReadFileString(const std::string path) {
     return fileContents;
 }
 
-void PodyJsonReader::MapFields(ConfigData &object, nlohmann::json jsonObject) {
+void PodyJsonReader::MapFields(ConfigData &object, const nlohmann::json jsonObject) {
     object.columns_amount = jsonObject["columns_amount"];
     object.rows_amount = jsonObject["rows_amount"];
     object.is_random_fill = jsonObject["is_random_fill"];

@@ -5,12 +5,11 @@
 #include <string>
 
 
-
 class PodyJsonReader {
 public:
 	static ConfigData readData(const std::string path);
 
 	static std::string ReadFileString(const std::string path);
 
-	static void MapFields(ConfigData& object, nlohmann::json jsonObject);
+	static void MapFields(ConfigData& object, const nlohmann::json jsonObject);
 };
