@@ -4,6 +4,7 @@
 class ConfigData
 {
 public:
+
 	std::string version;
 	bool is_random_fill;
 	int rows_amount;

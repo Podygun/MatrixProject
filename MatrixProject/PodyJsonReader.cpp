@@ -4,12 +4,17 @@
 #include <sstream>
 
 #include "PodyJsonReader.h"
+#include "PodyLogger.h"
 #include "nlohmann/json.hpp"
 
 ConfigData PodyJsonReader::readData(const std::string path)
 {
+    PodyLogger logger;
+    logger.log(LogLevel::INFO, "Чтение конфигурационного файла");
+
     std::string serializedString = ReadFileString(path);
     ConfigData data{};
+    logger.log(LogLevel::INFO, "Парсинг конфигурационного файла");
     nlohmann::json jsonObj = nlohmann::json::parse(serializedString);
     MapFields(data, jsonObj);
     return data;
@@ -38,6 +43,7 @@ void PodyJsonReader::MapFields(ConfigData &object, const nlohmann::json jsonObje
     object.rows_amount = jsonObject["rows_amount"];
     object.is_random_fill = jsonObject["is_random_fill"];
     object.version = jsonObject["version"];
+
 }
 
 

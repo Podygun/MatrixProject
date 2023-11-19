@@ -1,6 +1,6 @@
 {
-    "version" : "1.0.0",
+    "version": "1.0.0",
     "is_random_fill": true,
-    "rows_amount": 2,
-    "columns_amount": 3
+    "rows_amount": 10,
+    "columns_amount": 30
 }
